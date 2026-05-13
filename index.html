@@ -27,13 +27,8 @@
 
     header{
       position:relative;
-      height:100vh;
-      background:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-        url('logo.png');
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
+      height:70vh;
+      background-color:#f8f5f0;
 
       display:flex;
       align-items:center;
@@ -42,13 +37,40 @@
       color:white;
     }
 
+    /* Smaller centered cover image */
+
+    header::before{
+      content:"";
+      position:absolute;
+
+      width:450px;
+      height:450px;
+
+      background:
+        linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+        url('logo.png');
+
+      background-size:contain;
+      background-repeat:no-repeat;
+      background-position:center;
+
+      opacity:0.95;
+    }
+
+    /* Header title */
+
     header h1{
+      position:relative;
+      z-index:2;
+
       font-family:'Playfair Display', serif;
-      font-size:64px;
+      font-size:58px;
       letter-spacing:3px;
-      padding:25px 40px;
+
+      padding:20px 35px;
       border-radius:12px;
-      background:rgba(0,0,0,0.35);
+
+      background:rgba(0,0,0,0.45);
       backdrop-filter:blur(4px);
     }
 
@@ -170,9 +192,18 @@
 
     @media(max-width:768px){
 
+      header{
+        height:60vh;
+      }
+
+      header::before{
+        width:280px;
+        height:280px;
+      }
+
       header h1{
-        font-size:42px;
-        padding:20px;
+        font-size:36px;
+        padding:15px 20px;
       }
 
       nav a{
